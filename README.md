@@ -1,6 +1,7 @@
-# Home Assistant Blueprint: Multi-Press Button Actions
+# Home Assistant Blueprint: Aqara Mini Switch Multi-Press
 
-[![Import Blueprint](https://my.home-assistant.io/badges/automation_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?url=https://raw.githubusercontent.com/yudhaime/aqaraminisiwtch-HAblueprint/main/config/blueprints/automation/aqaraminiswitch/button_multi_press.yaml)
+[![Import Blueprint](https://my.home-assistant.io/badges/automation_import.svg)](https://my.home-assistant.io/redirect/blueprint_import/?url=https://raw.githubusercontent.com/yudhaime/aqaraminisiwtch-HAblueprint/main/miniswitch/aqaraminiswitch.yaml)
+
 
 This blueprint allows you to assign different actions to a **single button** entity, based on the type of press:
 - **Single press**
