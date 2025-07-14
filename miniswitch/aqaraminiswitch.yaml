@@ -1,38 +1,29 @@
 blueprint:
-  name: Multi-Press Button Actions
+  name: Aqara Mini Switch - Multi Press
   description: |
-    Trigger different actions based on single, double, or long press of a button entity.
-    Works with buttons that store the press type in the `event_type` attribute.
-
-    Example: Zigbee or Matter button with entity_id like `event.button_desk`
-  author: yudhaime
+    Trigger different actions based on single, double, or long press from a button entity.
+    This blueprint works with buttons that report press types in the 'event_type' attribute.
   domain: automation
   input:
     button_event:
-      name: Button Event Entity
-      description: Select the button entity (typically in the event.* domain)
+      name: Button Event
+      description: The button entity (event domain) to monitor.
       selector:
         entity:
           domain: event
 
     single_press_action:
       name: Action on Single Press
-      description: Action to run when the button is single-pressed
-      default: []
       selector:
         action: {}
 
     double_press_action:
       name: Action on Double Press
-      description: Action to run when the button is double-pressed
-      default: []
       selector:
         action: {}
 
     long_press_action:
       name: Action on Long Press
-      description: Action to run when the button is long-pressed
-      default: []
       selector:
         action: {}
 
