@@ -1,0 +1,60 @@
+blueprint:
+  name: Multi-Press Button Actions
+  description: |
+    Trigger different actions based on single, double, or long press of a button entity.
+    Works with buttons that store the press type in the `event_type` attribute.
+
+    Example: Zigbee or Matter button with entity_id like `event.button_desk`
+  author: yudhaime
+  domain: automation
+  input:
+    button_event:
+      name: Button Event Entity
+      description: Select the button entity (typically in the event.* domain)
+      selector:
+        entity:
+          domain: event
+
+    single_press_action:
+      name: Action on Single Press
+      description: Action to run when the button is single-pressed
+      default: []
+      selector:
+        action: {}
+
+    double_press_action:
+      name: Action on Double Press
+      description: Action to run when the button is double-pressed
+      default: []
+      selector:
+        action: {}
+
+    long_press_action:
+      name: Action on Long Press
+      description: Action to run when the button is long-pressed
+      default: []
+      selector:
+        action: {}
+
+trigger:
+  - platform: state
+    entity_id: !input button_event
+
+mode: single
+
+action:
+  - choose:
+      - conditions:
+          - condition: template
+            value_template: "{{ trigger.to_state.attributes.event_type == 'single_press' }}"
+        sequence: !input single_press_action
+
+      - conditions:
+          - condition: template
+            value_template: "{{ trigger.to_state.attributes.event_type == 'double_press' }}"
+        sequence: !input double_press_action
+
+      - conditions:
+          - condition: template
+            value_template: "{{ trigger.to_state.attributes.event_type == 'long_press' }}"
+        sequence: !input long_press_action
